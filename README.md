@@ -4,13 +4,16 @@ A simple Python script that checks the rain forecast for tomorrow and alerts you
 
 ## How it works
 
-The script sends a request to the Open-Meteo API with a given location (latitude and longitude), retrieves the daily rain probability forecast, and prints a message telling you the chance of rain for the next day.
+The script asks the user for a city name, uses the Open-Meteo Geocoding API to convert it into coordinates, then sends those coordinates to the Open-Meteo Weather API to retrieve the daily rain probability forecast. Finally, it prints a message telling you the chance of rain for tomorrow.
+
 
 ## Technologies used
 
 - Python 3
 - [Requests](https://docs.python-requests.org/) — to make HTTP calls to the API
-- [Open-Meteo API](https://open-meteo.com/) — free weather API, no API key required
+- [Open-Meteo Weather API](https://open-meteo.com/) — free weather API, no API key required
+- [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) — converts city names into coordinates
+
 
 ## How to run
 
@@ -29,11 +32,11 @@ python main.py
 
 ## Example output
 
+Enter the name of your city: São Paulo
 It shouldn't rain tomorrow 0%
 
 
 ## Next steps
 
-- Allow the user to input any city instead of fixed coordinates
 - Send alerts via email or Telegram instead of just printing to the terminal
 - Automate the script to run daily

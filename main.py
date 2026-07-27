@@ -15,8 +15,27 @@ def get_rain_forecast(lat, lon):
     data = response.json()
     return data
 
-lat = float(input("Enter your city's latitude: "))
-lon = float(input("Enter your city's longitude: "))
+def get_coordinates(city_name):
+    url = "https://geocoding-api.open-meteo.com/v1/search"
+
+    params = {
+        "name": city_name,
+        "count": 1,
+        "language": "pt",
+        "format": "json"
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    city = data["results"][0]
+    lat = city["latitude"]
+    lon = city["longitude"]
+    return lat, lon
+
+city_name = input("Enter the name of your city: ")
+
+lat, lon = get_coordinates(city_name)
 
 data = get_rain_forecast(lat, lon)
 

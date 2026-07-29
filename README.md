@@ -44,4 +44,3 @@ Enter the name of your city: São Paulo
 ## Next steps
 
 - Send alerts via Telegram as an alternative to email
-- Automate the script to run daily
